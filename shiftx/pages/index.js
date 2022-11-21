@@ -1,11 +1,11 @@
 export default function Home() {
   return (
-      <div className="p-5">
+      <div className="bg-yellow-400 p-5">
         <div>
           <h2 className="text-2xl">Smartphones</h2>
           <div className="py-4">
             <div className="w-64">
-              <div className="bg-gray-200 p-5 rounded-xl">
+              <div className="bg-white p-5 rounded-xl">
                 <img src="/products/razer.png" alt=""/>
               </div>
               <div className="mt-2">
