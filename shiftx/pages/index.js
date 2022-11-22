@@ -2,7 +2,7 @@ export default function Home() {
   return (
       <div className="bg-yellow-400 p-5">
         <div>
-          <h2 className="text-2xl">Smartphones</h2>
+          <h2 className="text-2xl">Audio</h2>
           <div className="py-4">
             <div className="w-64">
               <div className="bg-white p-5 rounded-xl">
