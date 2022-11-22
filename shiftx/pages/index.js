@@ -1,4 +1,15 @@
+import { useEffect, useState } from "react"
+
 export default function Home() {
+//Na ftiaxw ta products apo to api
+
+  //   const [productsInfo,setProductsInfo] = useState(initialState:[]);
+//   useEffect(effect: () => {
+//     fetch(input: '/api/products')
+//       .then(response => response.json());
+//       .then(json => setProductsInfo(json));
+// }, deps:[]);
+//   console.log({productsInfo});
   return (
       <div className="bg-yellow-400 p-5">
         <div>
