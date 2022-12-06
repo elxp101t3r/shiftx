@@ -8,7 +8,7 @@ export default function Home() {
       .then(json => setProductsInfo(json));
     }, []);
     
-    const categoriesNames = new Set(productsInfo.map(p => p.category));
+    const categoriesNames = [...new Set(productsInfo.map(p => p.category))];
     console.log({categoriesNames});
 
   return (
