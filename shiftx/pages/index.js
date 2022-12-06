@@ -39,8 +39,6 @@ export default function Home() {
               )}
               </div>
           ))}
-          <div className="py-4">
-          </div>
         </div>
       </div>
   )
