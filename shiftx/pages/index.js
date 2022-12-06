@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import Product from "../components/Product";
 
 export default function Home() {
     const [productsInfo, setProductsInfo] = useState([])
@@ -7,25 +8,25 @@ export default function Home() {
       .then(response => response.json())
       .then(json => setProductsInfo(json));
     }, []);
-    console.log({productsInfo});
+    
+    const categoriesNames = [...new Set(productsInfo.map(p => p.category))];
+
   return (
-      <div className="bg-yellow-400 p-5">
+      <div className="bg-purple-600 p-5">
         <div>
-          <h2 className="text-2xl">Audio</h2>
+          {categoriesNames.map(categoryName => (
+            <div key={categoryName}>
+              <h2 className="text-2xl py-5 capitalize">{categoryName}</h2>
+              <div className="flex -mx-5 overflow-x-scroll snap-x scrollbar-hide">
+              {productsInfo.filter(p => p.category === categoryName).map(productInfo => (
+                <div key={productInfo._id} className="px-5 snap-start">
+                  <Product {...productInfo}/>
+                </div>
+              ))}
+              </div>
+              </div>
+          ))}
           <div className="py-4">
-            <div className="w-64">
-              <div className="bg-white p-5 rounded-xl">
-                <img src="/products/razer.png" alt=""/>
-              </div>
-              <div className="mt-2">
-                <h3 className="font-bold text-lg">razer-thx</h3>
-              </div>
-              <p className="text-sm mt-1 leading-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-              <div className="flex mt-1">
-                  <div className="text-2xl font-bold grow">49.99$</div>
-                  <button className="bg-black text-white py-1 px-3 rounded-xl">+ to cart</button>
-              </div>
-            </div>
           </div>
         </div>
       </div>
