@@ -7,9 +7,12 @@ export default function Home() {
       .then(response => response.json())
       .then(json => setProductsInfo(json));
     }, []);
-    console.log({productsInfo});
+    
+    const categoriesNames = new Set(productsInfo.map(p => p.category));
+    console.log({categoriesNames});
+
   return (
-      <div className="bg-yellow-400 p-5">
+      <div className="bg-purple-600 p-5">
         <div>
           <h2 className="text-2xl">Audio</h2>
           <div className="py-4">
