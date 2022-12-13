@@ -1,5 +1,5 @@
 import Layout from "../components/Layout"
-export default function CheckoutPag(){
+export default function CheckoutPage(){
     return (
         <Layout>
             Checkout

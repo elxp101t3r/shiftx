@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useContext } from "react";
+import { ProductsContext } from "./ProductsContext";
 export default function Footer(){
     const router = useRouter();
     const path = router.pathname;
+    const {selectedProducts} = useContext(ProductsContext)
     return (
         <footer className="sticky bottom-0 bg-purple-700 p-5 w-full flex justify-center space-x-12">
             <Link className={(path === '/' ? 'text-white' : '') +" flex justify-center items-center flex-col"} href={'/'}>
@@ -15,7 +18,7 @@ export default function Footer(){
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
                 </svg>
-                <span>Cart 0</span>
+                <span>Cart {selectedProducts.length}</span>
             </Link>
         </footer>
     );
