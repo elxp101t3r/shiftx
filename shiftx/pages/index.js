@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import Product from "../components/Product";
+import { initMongoose } from "../lib/mongoose";
 import { findAllProducts } from "./api/products";
+import Layout from "../components/Layout";
 
 export default function Home({products}) {
     const [phrase,setPhrase] = useState('');
@@ -12,8 +14,9 @@ export default function Home({products}) {
       products = products.filter(p => p.name.toLowerCase().includes(phrase))
     }
   return (
-      <div className="bg-purple-600 p-5">
-        <input value={phrase} onChange={e => setPhrase(e.target.value)} type="text" placeholder="Search a product..." className="bg-purple-700 w-full py-2 px-4 rounded-xl"/>
+    
+      <Layout>
+        <input value={phrase} onChange={e => setPhrase(e.target.value)} type="text" placeholder="Search a product..." className="bg-purple-700 w-full py-2 px-4 rounded-xl text-white focus:outline-none placeholder:text-white focus:outline-purple-800"/>
         <div>
           {categoriesNames.map(categoryName => (
             <div key={categoryName}>
@@ -32,7 +35,7 @@ export default function Home({products}) {
               </div>
           ))}
         </div>
-      </div>
+        </Layout>
   )
 }
 
