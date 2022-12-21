@@ -12,12 +12,13 @@ export default async function handler(req,res){
     }
 
     const productsIds = req.body.products.split(',');
+    const {email,name,address,city} = req.body;
     const uniqIds = [...new Set(productsIds)];
     const products = await Product.find({_id:{$in:uniqIds}}).exec();
 
     let line_items = [];
     for(let productId of uniqIds){
-        const quantity = productsIds.find(id => productId).length;
+        const quantity = productsIds.filter(id => productId).length;
         const product = products.find(p => p._id.toString() === productId); 
         line_items.push({
             quantity,
@@ -32,6 +33,7 @@ export default async function handler(req,res){
     const session = await stripe.checkout.sessions.create({
         line_items: line_items,
         mode: 'payment',
+        customer_email: email,
         success_url: `${req.headers.origin}/?success=true`,
         cancel_url: `${req.headers.origin}/?canceled=true`,
       });
