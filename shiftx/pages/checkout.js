@@ -74,7 +74,7 @@ export default function CheckoutPage(){
             <div className="mt-4">
                 <input name="address" value={address} onChange={e => setAddress(e.target.value)} className="bg-purple-700 w-full rounded-lg px-4 py-2 mb-1 text-white focus:outline-none placeholder:text-white" type="text" placeholder="Street address"/>
                 <input name="city" value={city} onChange={e => setCity(e.target.value)} className="bg-purple-700 w-full rounded-lg px-4 py-2 mb-1 text-white focus:outline-none placeholder:text-white" type="text" placeholder="City and postal"/>
-                <input name="name" value={name} onChange={e => setName(e.target.value)} className="bg-purple-700 w-full rounded-lg px-4 py-2 mb-1 text-white focus:outline-none placeholder:text-white" type="email" placeholder="Name"/>
+                <input name="name" value={name} onChange={e => setName(e.target.value)} className="bg-purple-700 w-full rounded-lg px-4 py-2 mb-1 text-white focus:outline-none placeholder:text-white" type="text" placeholder="Name"/>
                 <input name="email" value={email} onChange={e => setEmail(e.target.value)} className="bg-purple-700 w-full rounded-lg px-4 py-2 mb-1 text-white focus:outline-none placeholder:text-white" type="email" placeholder="Email Address"/>
             </div>
             <div className="mt-4">
