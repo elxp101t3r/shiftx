@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next export",
     "start": "next start",
     "lint": "next lint"
   },
@@ -12,6 +13,7 @@
     "autoprefixer": "^10.4.13",
     "eslint": "8.28.0",
     "eslint-config-next": "13.0.4",
+    "export": "^0.1.337",
     "micro": "^10.0.1",
     "mongoose": "^6.7.2",
     "next": "13.0.4",
